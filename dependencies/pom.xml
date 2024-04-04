@@ -28,7 +28,7 @@
 
     <groupId>cn.herodotus.engine</groupId>
     <artifactId>dependencies</artifactId>
-    <version>3.2.4.1</version>
+    <version>3.2.4.2</version>
     <packaging>pom</packaging>
 
     <description>基于 Spring Authorization Server 的 Dante Cloud Dependencies</description>
@@ -82,34 +82,34 @@
         <antisamy.version>1.7.5</antisamy.version>
         <commons-collections4.version>4.4</commons-collections4.version>
         <commons-fileupload.version>1.5</commons-fileupload.version>
-        <commons-io.version>2.15.1</commons-io.version>
+        <commons-io.version>2.16.0</commons-io.version>
         <guava.version>33.1.0-jre</guava.version>
         <zxing.version>3.5.3</zxing.version>
         <!-- 应用开发辅助工具组件 -->
         <redisson.version>3.27.2</redisson.version>
         <p6spy.version>3.9.1</p6spy.version>
-        <springdoc.version>2.4.0</springdoc.version>
+        <springdoc.version>2.5.0</springdoc.version>
         <logstash-logback-encoder.version>7.4</logstash-logback-encoder.version>
         <skywalking.version>9.1.0</skywalking.version>
         <minio.version>8.5.9</minio.version>
-        <aws-java-sdk-s3.version>1.12.688</aws-java-sdk-s3.version>
+        <aws-java-sdk-s3.version>1.12.692</aws-java-sdk-s3.version>
         <org.eclipse.paho.version>1.2.5</org.eclipse.paho.version>
         <influxdb-client.version>7.0.0</influxdb-client.version>
         <!-- 阿里巴巴开源工具依赖 -->
         <fastjson.version>1.2.83</fastjson.version>
         <fastjson2.version>2.0.48</fastjson2.version>
         <jetcache.version>2.7.5</jetcache.version>
-        <nacos.version>2.3.1</nacos.version>
+        <nacos.version>2.3.2</nacos.version>
         <transmittable-thread-local.version>2.14.5</transmittable-thread-local.version>
         <!-- 国内开源通用组件 -->
         <hutool.version>6.0.0-M11</hutool.version>
-        <hutool-5.X.version>5.8.26</hutool-5.X.version>
+        <hutool-5.X.version>5.8.27</hutool-5.X.version>
         <okhttps.version>4.0.2</okhttps.version>
         <weixin-java-sdk.version>4.6.0</weixin-java-sdk.version>
         <just-auth.verison>1.16.6</just-auth.verison>
         <!--第三方starter-->
         <jasypt-spring-boot-starter.version>3.0.5</jasypt-spring-boot-starter.version>
-        <camunda-bpm-spring-boot-starter-rest.version>7.21.0-alpha4</camunda-bpm-spring-boot-starter-rest.version>
+        <camunda-bpm-spring-boot-starter-rest.version>7.21.0-alpha5</camunda-bpm-spring-boot-starter-rest.version>
         <sms4j-spring-boot-starter.version>3.2.0</sms4j-spring-boot-starter.version>
         <mybatis-plus-boot-starter.version>3.5.5</mybatis-plus-boot-starter.version>
         <mybatis-plus-generator.version>3.5.5</mybatis-plus-generator.version>
@@ -122,7 +122,7 @@
         <jquery.version>3.7.1</jquery.version>
         <jquery-backstretch.version>2.1.17</jquery-backstretch.version>
         <mdi__font.version>7.4.47</mdi__font.version>
-        <quasar.version>2.15.1</quasar.version>
+        <quasar.version>2.15.2</quasar.version>
         <uniform.version>2.1.2-1</uniform.version>
         <vue.version>3.4.21</vue.version>
         <!--厂商应用集成-->
