@@ -16,7 +16,7 @@
 
 package cn.herodotus.engine.oauth2.management.controller;
 
-import cn.herodotus.engine.assistant.core.domain.Result;
+import cn.herodotus.engine.assistant.definition.domain.Result;
 import cn.herodotus.engine.captcha.core.dto.Captcha;
 import cn.herodotus.engine.captcha.core.dto.Verification;
 import cn.herodotus.engine.captcha.core.processor.CaptchaRendererFactory;
@@ -67,8 +67,8 @@ public class CaptchaController implements Controller {
     @Operation(summary = "获取验证码", description = "通过传递身份信息（类似于Session标识）",
             responses = {@ApiResponse(description = "验证码图形信息", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Map.class)))})
     @Parameters({
-            @Parameter(name = "identity", required = true, in = ParameterIn.PATH, description = "身份信息"),
-            @Parameter(name = "category", required = true, in = ParameterIn.PATH, description = "验证码类型")
+            @Parameter(name = "identity", required = true, in = ParameterIn.QUERY, description = "身份信息"),
+            @Parameter(name = "category", required = true, in = ParameterIn.QUERY, description = "验证码类型")
     })
     @GetMapping
     public Result<Captcha> create(@NotBlank(message = "身份信息不能为空") String identity, @NotBlank(message = "验证码类型不能为空") String category) {

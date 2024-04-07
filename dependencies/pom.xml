@@ -22,13 +22,13 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.5</version>
+        <version>3.2.4</version>
         <relativePath/>
     </parent>
 
     <groupId>cn.herodotus.engine</groupId>
     <artifactId>dependencies</artifactId>
-    <version>3.1.5.7</version>
+    <version>3.2.4.2</version>
     <packaging>pom</packaging>
 
     <description>基于 Spring Authorization Server 的 Dante Cloud Dependencies</description>
@@ -68,89 +68,83 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <!--Spring 家族-->
-        <spring-boot-admin.version>3.1.7</spring-boot-admin.version>
-        <spring-boot-dependencies.version>3.1.5</spring-boot-dependencies.version>
-        <spring-cloud-dependencies.version>2022.0.4</spring-cloud-dependencies.version>
-        <spring-cloud-alibaba-dependencies.version>2022.0.0.0</spring-cloud-alibaba-dependencies.version>
-        <spring-cloud-tencent-dependencies.version>1.12.4-2022.0.4</spring-cloud-tencent-dependencies.version>
+        <spring-boot-admin.version>3.2.3</spring-boot-admin.version>
+        <spring-boot-dependencies.version>3.2.4</spring-boot-dependencies.version>
+        <spring-cloud-dependencies.version>2023.0.1</spring-cloud-dependencies.version>
+        <spring-cloud-alibaba-dependencies.version>2023.0.0.0-RC1</spring-cloud-alibaba-dependencies.version>
+        <spring-cloud-tencent-dependencies.version>1.13.1-2023.0.0</spring-cloud-tencent-dependencies.version>
         <!--Maven Plugin 相关组件-->
         <archetype-packaging.verison>3.2.1</archetype-packaging.verison>
         <mapstruct-processor.version>1.5.5.Final</mapstruct-processor.version>
-        <maven-archetype-plugin.version>3.2.1</maven-archetype-plugin.version>
-        <maven-gpg-plugin.version>3.1.0</maven-gpg-plugin.version>
+        <maven-gpg-plugin.version>3.2.2</maven-gpg-plugin.version>
         <!--开源通用工具包-->
         <animated-gif-lib.version>1.4</animated-gif-lib.version>
-        <antisamy.version>1.7.4</antisamy.version>
+        <antisamy.version>1.7.5</antisamy.version>
         <commons-collections4.version>4.4</commons-collections4.version>
         <commons-fileupload.version>1.5</commons-fileupload.version>
-        <commons-text.version>1.10.0</commons-text.version>
-        <commons-io.version>2.15.0</commons-io.version>
-        <guava.version>32.1.3-jre</guava.version>
-        <zxing.version>3.5.2</zxing.version>
+        <commons-io.version>2.16.0</commons-io.version>
+        <guava.version>33.1.0-jre</guava.version>
+        <zxing.version>3.5.3</zxing.version>
         <!-- 应用开发辅助工具组件 -->
-        <redisson.version>3.24.3</redisson.version>
+        <redisson.version>3.27.2</redisson.version>
         <p6spy.version>3.9.1</p6spy.version>
-        <springdoc.version>2.2.0</springdoc.version>
+        <springdoc.version>2.5.0</springdoc.version>
         <logstash-logback-encoder.version>7.4</logstash-logback-encoder.version>
-        <skywalking.version>9.0.0</skywalking.version>
-        <minio.version>8.5.7</minio.version>
-        <aws-java-sdk-s3.version>1.12.588</aws-java-sdk-s3.version>
+        <skywalking.version>9.1.0</skywalking.version>
+        <minio.version>8.5.9</minio.version>
+        <aws-java-sdk-s3.version>1.12.692</aws-java-sdk-s3.version>
         <org.eclipse.paho.version>1.2.5</org.eclipse.paho.version>
-        <influxdb-client-java.version>6.10.0</influxdb-client-java.version>
+        <influxdb-client.version>7.0.0</influxdb-client.version>
         <!-- 阿里巴巴开源工具依赖 -->
         <fastjson.version>1.2.83</fastjson.version>
-        <fastjson2.version>2.0.42</fastjson2.version>
-        <jetcache.version>2.7.4</jetcache.version>
-        <nacos.version>2.2.4</nacos.version>
-        <transmittable-thread-local.version>2.14.3</transmittable-thread-local.version>
+        <fastjson2.version>2.0.48</fastjson2.version>
+        <jetcache.version>2.7.5</jetcache.version>
+        <nacos.version>2.3.2</nacos.version>
+        <transmittable-thread-local.version>2.14.5</transmittable-thread-local.version>
         <!-- 国内开源通用组件 -->
-        <hutool.version>6.0.0-M8</hutool.version>
+        <hutool.version>6.0.0-M11</hutool.version>
+        <hutool-5.X.version>5.8.27</hutool-5.X.version>
         <okhttps.version>4.0.2</okhttps.version>
-        <weixin-java-sdk.version>4.5.6.B</weixin-java-sdk.version>
-        <just-auth.verison>1.16.5</just-auth.verison>
+        <weixin-java-sdk.version>4.6.0</weixin-java-sdk.version>
+        <just-auth.verison>1.16.6</just-auth.verison>
         <!--第三方starter-->
         <jasypt-spring-boot-starter.version>3.0.5</jasypt-spring-boot-starter.version>
-        <camunda-bpm-spring-boot-starter-rest.version>7.20.0</camunda-bpm-spring-boot-starter-rest.version>
-        <mybatis-plus-boot-starter.version>3.5.4.1</mybatis-plus-boot-starter.version>
-        <mybatis-plus-generator.version>3.5.4.1</mybatis-plus-generator.version>
-        <mybatis.version>3.5.14</mybatis.version>
+        <camunda-bpm-spring-boot-starter-rest.version>7.21.0-alpha5</camunda-bpm-spring-boot-starter-rest.version>
+        <sms4j-spring-boot-starter.version>3.2.0</sms4j-spring-boot-starter.version>
+        <mybatis-plus-boot-starter.version>3.5.5</mybatis-plus-boot-starter.version>
+        <mybatis-plus-generator.version>3.5.5</mybatis-plus-generator.version>
+        <mybatis.version>3.5.15</mybatis.version>
         <velocity.version>2.3</velocity.version>
         <!--Webjars 依赖-->
-        <animate.css.version>3.7.2</animate.css.version>
-        <bootstrap.version>5.3.2</bootstrap.version>
-        <font-awesome.version>6.4.2</font-awesome.version>
+        <animate.css.version>4.1.1</animate.css.version>
+        <bootstrap.version>5.3.3</bootstrap.version>
+        <font-awesome.version>6.5.1</font-awesome.version>
         <jquery.version>3.7.1</jquery.version>
-        <jquery-backstretch.version>2.1.16</jquery-backstretch.version>
-        <mdi__font.version>7.3.67</mdi__font.version>
-        <quasar.version>2.12.6</quasar.version>
+        <jquery-backstretch.version>2.1.17</jquery-backstretch.version>
+        <mdi__font.version>7.4.47</mdi__font.version>
+        <quasar.version>2.15.2</quasar.version>
         <uniform.version>2.1.2-1</uniform.version>
-        <vue.version>3.3.7</vue.version>
+        <vue.version>3.4.21</vue.version>
         <!--厂商应用集成-->
         <aliyun-java-sdk-core.version>4.6.4</aliyun-java-sdk-core.version>
         <aliyun-java-sdk-green.version>3.6.6</aliyun-java-sdk-green.version>
-        <aliyun-sdk-oss.version>3.17.2</aliyun-sdk-oss.version>
-        <alipay-sdk-java.version>4.38.128.ALL</alipay-sdk-java.version>
-        <dysmsapi20170525.version>2.0.24</dysmsapi20170525.version>
-        <tencentcloud-sdk-java.version>3.1.893</tencentcloud-sdk-java.version>
-        <qiniu-java-sdk.version>7.14.0</qiniu-java-sdk.version>
-        <com.baidu.aip.version>4.16.16</com.baidu.aip.version>
+        <aliyun-sdk-oss.version>3.17.4</aliyun-sdk-oss.version>
+        <alipay-sdk-java.version>4.39.19.ALL</alipay-sdk-java.version>
+        <com.baidu.aip.version>4.16.18</com.baidu.aip.version>
         <!--以下为特殊处理, 统一版本处理漏洞等-->
-        <org.json.version>20231013</org.json.version>
-        <okio.version>3.6.0</okio.version>
-        <xnio.version>3.8.12.Final</xnio.version>
+        <commons-text.version>1.10.0</commons-text.version>
+        <mysql.version>8.3.0</mysql.version>
+        <org.json.version>20240303</org.json.version>
+        <okio.version>3.9.0</okio.version>
+        <xnio.version>3.8.13.Final</xnio.version>
         <httpclient.version>4.5.14</httpclient.version>
-        <checker-qual.version>3.40.0</checker-qual.version>
-        <maven-source-plugin.version>3.3.0</maven-source-plugin.version>
-        <git-commit-id-maven-plugin.version>7.0.0</git-commit-id-maven-plugin.version>
-        <bcprov-jdk15to18.version>1.76</bcprov-jdk15to18.version>
-        <bcprov-jdk18on.version>1.76</bcprov-jdk18on.version>
-        <bcpkix-jdk18on.version>1.76</bcpkix-jdk18on.version>
-        <bcprov-jdk15on.version>1.70</bcprov-jdk15on.version>
-        <bcpkix-jdk15on.version>1.70</bcpkix-jdk15on.version>
+        <checker-qual.version>3.42.0</checker-qual.version>
+        <git-commit-id-maven-plugin.version>8.0.2</git-commit-id-maven-plugin.version>
+        <bcprov-jdk18on.version>1.77</bcprov-jdk18on.version>
+        <bcpkix-jdk18on.version>1.77</bcpkix-jdk18on.version>
         <dom4j.version>2.1.4</dom4j.version>
-        <snakeyaml.version>2.2</snakeyaml.version>
-        <sqlite-jdbc.version>3.43.2.2</sqlite-jdbc.version>
         <snappy-java.version>1.1.10.5</snappy-java.version>
+        <sqlite-jdbc.version>3.45.2.0</sqlite-jdbc.version>
     </properties>
 
     <dependencyManagement>
@@ -192,6 +186,20 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
+                <groupId>com.influxdb</groupId>
+                <artifactId>influxdb-client</artifactId>
+                <version>${influxdb-client.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-bom</artifactId>
+                <version>${hutool-5.X.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
                 <groupId>de.codecentric</groupId>
                 <artifactId>spring-boot-admin-starter-server</artifactId>
                 <version>${spring-boot-admin.version}</version>
@@ -205,6 +213,11 @@
             <dependency>
                 <groupId>cn.herodotus.engine</groupId>
                 <artifactId>access-sdk-justauth</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.herodotus.engine</groupId>
+                <artifactId>access-sdk-sms</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -225,6 +238,11 @@
             <dependency>
                 <groupId>cn.herodotus.engine</groupId>
                 <artifactId>access-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.herodotus.engine</groupId>
+                <artifactId>assistant-definition</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -444,51 +462,6 @@
             </dependency>
             <dependency>
                 <groupId>cn.herodotus.engine</groupId>
-                <artifactId>sms-core</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.herodotus.engine</groupId>
-                <artifactId>sms-sdk-aliyun</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.herodotus.engine</groupId>
-                <artifactId>sms-sdk-chinamobile</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.herodotus.engine</groupId>
-                <artifactId>sms-sdk-huawei</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.herodotus.engine</groupId>
-                <artifactId>sms-sdk-netease</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.herodotus.engine</groupId>
-                <artifactId>sms-sdk-qiniu</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.herodotus.engine</groupId>
-                <artifactId>sms-sdk-tencent</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.herodotus.engine</groupId>
-                <artifactId>sms-sdk-upyun</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.herodotus.engine</groupId>
-                <artifactId>sms-spring-boot-starter</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.herodotus.engine</groupId>
                 <artifactId>supplier-sdk-upms-logic</artifactId>
                 <version>${project.version}</version>
             </dependency>
@@ -502,7 +475,6 @@
                 <artifactId>supplier-sdk-message</artifactId>
                 <version>${project.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-collections4</artifactId>
@@ -543,7 +515,6 @@
                 <artifactId>animated-gif-lib</artifactId>
                 <version>${animated-gif-lib.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>org.redisson</groupId>
                 <artifactId>redisson</artifactId>
@@ -586,13 +557,8 @@
             </dependency>
             <dependency>
                 <groupId>com.influxdb</groupId>
-                <artifactId>influxdb-client-java</artifactId>
-                <version>${influxdb-client-java.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.influxdb</groupId>
                 <artifactId>flux-dsl</artifactId>
-                <version>${influxdb-client-java.version}</version>
+                <version>${influxdb-client.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.alibaba.nacos</groupId>
@@ -619,7 +585,6 @@
                 <artifactId>jetcache-redis-lettuce</artifactId>
                 <version>${jetcache.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>org.dromara.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
@@ -661,6 +626,11 @@
                 <version>${camunda-bpm-spring-boot-starter-rest.version}</version>
             </dependency>
             <dependency>
+                <groupId>org.dromara.sms4j</groupId>
+                <artifactId>sms4j-spring-boot-starter</artifactId>
+                <version>${sms4j-spring-boot-starter.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>com.github.ulisesbocchio</groupId>
                 <artifactId>jasypt-spring-boot-starter</artifactId>
                 <version>${jasypt-spring-boot-starter.version}</version>
@@ -692,7 +662,7 @@
             </dependency>
 
             <dependency>
-                <groupId>org.webjars</groupId>
+                <groupId>org.webjars.npm</groupId>
                 <artifactId>animate.css</artifactId>
                 <version>${animate.css.version}</version>
             </dependency>
@@ -712,7 +682,7 @@
                 <version>${jquery.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.webjars</groupId>
+                <groupId>org.webjars.bower</groupId>
                 <artifactId>jquery-backstretch</artifactId>
                 <version>${jquery-backstretch.version}</version>
             </dependency>
@@ -736,33 +706,11 @@
                 <artifactId>vue</artifactId>
                 <version>${vue.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>com.aliyun</groupId>
                 <artifactId>aliyun-java-sdk-core</artifactId>
                 <version>${aliyun-java-sdk-core.version}</version>
             </dependency>
-            <dependency>
-                <groupId>com.aliyun</groupId>
-                <artifactId>dysmsapi20170525</artifactId>
-                <version>${dysmsapi20170525.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.tencentcloudapi</groupId>
-                <artifactId>tencentcloud-sdk-java-sms</artifactId>
-                <version>${tencentcloud-sdk-java.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.tencentcloudapi</groupId>
-                <artifactId>tencentcloud-sdk-java-common</artifactId>
-                <version>${tencentcloud-sdk-java.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.qiniu</groupId>
-                <artifactId>qiniu-java-sdk</artifactId>
-                <version>${qiniu-java-sdk.version}</version>
-            </dependency>
-
             <dependency>
                 <groupId>com.aliyun</groupId>
                 <artifactId>aliyun-java-sdk-green</artifactId>
@@ -778,7 +726,6 @@
                 <artifactId>java-sdk</artifactId>
                 <version>${com.baidu.aip.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
@@ -799,7 +746,6 @@
                 <artifactId>org.eclipse.paho.mqttv5.client</artifactId>
                 <version>${org.eclipse.paho.version}</version>
             </dependency>
-
 
             <dependency>
                 <groupId>com.squareup.okio</groupId>
@@ -826,11 +772,6 @@
                 <groupId>org.xerial.snappy</groupId>
                 <artifactId>snappy-java</artifactId>
                 <version>${snappy-java.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.bouncycastle</groupId>
-                <artifactId>bcprov-jdk15on</artifactId>
-                <version>${bcprov-jdk15on.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.bouncycastle</groupId>
@@ -994,27 +935,6 @@
                             </goals>
                         </execution>
                     </executions>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-archetype-plugin</artifactId>
-                    <version>${maven-archetype-plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>io.github.git-commit-id</groupId>
-                    <artifactId>git-commit-id-maven-plugin</artifactId>
-                    <configuration>
-                        <!-- 检查的仓库根目录，${project.basedir}：项目根目录，即包含pom.xml文件的目录 -->
-                        <dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
-                        <!-- 生成git属性文件，默认false：不生成 -->
-                        <generateGitPropertiesFile>true</generateGitPropertiesFile>
-                        <dateFormat>yyyy-MM-dd HH:mm:ss</dateFormat>
-                        <gitDescribe>
-                            <skip>false</skip>
-                            <always>false</always>
-                            <dirty>-dirty</dirty>
-                        </gitDescribe>
-                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>

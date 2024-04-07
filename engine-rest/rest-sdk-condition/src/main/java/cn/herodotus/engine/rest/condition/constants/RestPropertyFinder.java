@@ -18,7 +18,7 @@ package cn.herodotus.engine.rest.condition.constants;
 
 
 import cn.herodotus.engine.assistant.core.context.PropertyResolver;
-import cn.herodotus.engine.assistant.core.constants.BaseConstants;
+import cn.herodotus.engine.assistant.definition.constants.BaseConstants;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ConditionContext;
 
@@ -46,12 +46,12 @@ public class RestPropertyFinder {
         return PropertyResolver.getBoolean(conditionContext, RestConstants.ITEM_SCAN_ENABLED);
     }
 
-    public static boolean isOpenFeignOkHttpEnabled(ConditionContext conditionContext) {
-        return PropertyResolver.getBoolean(conditionContext, RestConstants.ITEM_OPENFEIGN_OKHTTP_ENABLED);
+    public static boolean isOpenFeignHttp2ClientEnabled(ConditionContext conditionContext) {
+        return PropertyResolver.getBoolean(conditionContext, RestConstants.ITEM_OPENFEIGN_HTTP2CLIENT_ENABLED);
     }
 
-    public static boolean isOpenFeignHttpClientEnabled(ConditionContext conditionContext) {
-        return PropertyResolver.getBoolean(conditionContext, RestConstants.ITEM_OPENFEIGN_HTTPCLIENT_ENABLED);
+    public static boolean isOpenFeignHttpClient5Enabled(ConditionContext conditionContext) {
+        return PropertyResolver.getBoolean(conditionContext, RestConstants.ITEM_OPENFEIGN_HTTPCLIENT5_ENABLED);
     }
 
     public static String getDataAccessStrategy(ConditionContext conditionContext, String defaultValue) {

@@ -23,7 +23,7 @@
     <parent>
         <artifactId>engine-access</artifactId>
         <groupId>cn.herodotus.engine</groupId>
-        <version>3.1.5.7</version>
+        <version>3.2.4.2</version>
     </parent>
 
     <artifactId>access-sdk-all</artifactId>
@@ -34,6 +34,16 @@
         <dependency>
             <groupId>cn.herodotus.engine</groupId>
             <artifactId>access-sdk-justauth</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>bcpkix-jdk15on</artifactId>
+                    <groupId>org.bouncycastle</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>cn.herodotus.engine</groupId>
+            <artifactId>access-sdk-sms</artifactId>
         </dependency>
         <dependency>
             <groupId>cn.herodotus.engine</groupId>
@@ -42,10 +52,6 @@
         <dependency>
             <groupId>cn.herodotus.engine</groupId>
             <artifactId>access-sdk-wxmpp</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>cn.herodotus.engine</groupId>
-            <artifactId>sms-spring-boot-starter</artifactId>
         </dependency>
     </dependencies>
 

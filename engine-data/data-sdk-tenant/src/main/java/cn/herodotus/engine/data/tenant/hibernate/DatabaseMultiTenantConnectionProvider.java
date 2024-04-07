@@ -16,7 +16,7 @@
 
 package cn.herodotus.engine.data.tenant.hibernate;
 
-import cn.herodotus.engine.assistant.core.constants.DefaultConstants;
+import cn.herodotus.engine.assistant.definition.constants.DefaultConstants;
 import cn.herodotus.engine.data.tenant.datasource.MultiTenantDataSourceFactory;
 import org.apache.commons.lang3.ObjectUtils;
 import org.dromara.hutool.extra.spring.SpringUtil;
@@ -38,7 +38,7 @@ import java.util.Map;
  * @author : gengwei.zheng
  * @date : 2022/9/8 18:14
  */
-public class DatabaseMultiTenantConnectionProvider extends AbstractDataSourceBasedMultiTenantConnectionProviderImpl implements HibernatePropertiesCustomizer {
+public class DatabaseMultiTenantConnectionProvider extends AbstractDataSourceBasedMultiTenantConnectionProviderImpl<String> implements HibernatePropertiesCustomizer {
 
     private static final Logger log = LoggerFactory.getLogger(DatabaseMultiTenantConnectionProvider.class);
     private final Map<String, DataSource> dataSources = new HashMap<>();

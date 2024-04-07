@@ -16,7 +16,7 @@
 
 package cn.herodotus.engine.access.core.constants;
 
-import cn.herodotus.engine.assistant.core.constants.BaseConstants;
+import cn.herodotus.engine.assistant.definition.constants.BaseConstants;
 
 /**
  * <p>Description: 接入模块常量 </p>
@@ -33,6 +33,10 @@ public interface AccessConstants extends BaseConstants {
     String PROPERTY_ACCESS_WXMPP = PROPERTY_PREFIX_ACCESS + ".wxmpp";
     String ITEM_WXMPP_ENABLED = PROPERTY_ACCESS_WXMPP + PROPERTY_ENABLED;
 
+    String PROPERTY_PREFIX_SMS = PROPERTY_PREFIX_ACCESS + ".sms";
+    String ITEM_SMS_ENABLED = PROPERTY_PREFIX_SMS + PROPERTY_ENABLED;
+
+    String CACHE_NAME_TOKEN_VERIFICATION_CODE = CACHE_TOKEN_BASE_PREFIX + "verification:";
 
     String CACHE_NAME_TOKEN_JUSTAUTH = CACHE_TOKEN_BASE_PREFIX + "justauth:";
 }

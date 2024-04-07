@@ -16,22 +16,20 @@
 
 package cn.herodotus.engine.facility.alibaba.autoconfigure.sentinel;
 
-import cn.herodotus.engine.assistant.core.domain.Result;
 import cn.herodotus.engine.assistant.core.json.jackson2.utils.Jackson2Utils;
+import cn.herodotus.engine.assistant.definition.domain.Result;
 import cn.herodotus.engine.facility.alibaba.autoconfigure.sentinel.enhance.HerodotusSentinelFeign;
-import com.alibaba.cloud.sentinel.feign.SentinelFeignAutoConfiguration;
-import com.alibaba.csp.sentinel.SphU;
 import com.alibaba.csp.sentinel.adapter.spring.webflux.callback.BlockRequestHandler;
 import com.alibaba.csp.sentinel.adapter.spring.webmvc.callback.BlockExceptionHandler;
 import feign.Feign;
 import jakarta.annotation.PostConstruct;
-import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
@@ -46,8 +44,8 @@ import org.springframework.web.reactive.function.server.ServerResponse;
  * @author : gengwei.zheng
  * @date : 2022/2/5 17:57
  */
-@AutoConfiguration(before = SentinelFeignAutoConfiguration.class)
-@ConditionalOnClass({SphU.class, Feign.class})
+@AutoConfiguration
+@ConditionalOnClass
 public class FacilityAlibabaSentinelAutoConfiguration {
 
     private static final Logger log = LoggerFactory.getLogger(FacilityAlibabaSentinelAutoConfiguration.class);
@@ -69,8 +67,8 @@ public class FacilityAlibabaSentinelAutoConfiguration {
      * 限流、熔断统一处理类
      */
     @Configuration(proxyBeanMethods = false)
-    @ConditionalOnClass(HttpServletRequest.class)
-    public static class WebmvcHandler {
+    @ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.SERVLET)
+    public static class WebMvcHandler {
         @Bean
         public BlockExceptionHandler webmvcBlockExceptionHandler() {
             return (request, response, e) -> {
@@ -86,7 +84,7 @@ public class FacilityAlibabaSentinelAutoConfiguration {
      * 限流、熔断统一处理类
      */
     @Configuration(proxyBeanMethods = false)
-    @ConditionalOnClass(ServerResponse.class)
+    @ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.REACTIVE)
     public static class WebfluxHandler {
         @Bean
         public BlockRequestHandler webfluxBlockExceptionHandler() {

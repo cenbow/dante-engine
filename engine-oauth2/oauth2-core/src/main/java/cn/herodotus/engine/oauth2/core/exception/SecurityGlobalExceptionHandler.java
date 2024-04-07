@@ -16,11 +16,11 @@
 
 package cn.herodotus.engine.oauth2.core.exception;
 
-import cn.herodotus.engine.assistant.core.constants.ErrorCodes;
-import cn.herodotus.engine.assistant.core.domain.Feedback;
-import cn.herodotus.engine.assistant.core.domain.Result;
+import cn.herodotus.engine.assistant.definition.constants.ErrorCodes;
+import cn.herodotus.engine.assistant.definition.domain.Feedback;
+import cn.herodotus.engine.assistant.definition.domain.Result;
 import cn.herodotus.engine.assistant.core.exception.GlobalExceptionHandler;
-import cn.herodotus.engine.assistant.core.exception.PlatformException;
+import cn.herodotus.engine.assistant.definition.exception.PlatformRuntimeException;
 import cn.herodotus.engine.oauth2.core.constants.OAuth2ErrorKeys;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -141,7 +141,7 @@ public class SecurityGlobalExceptionHandler {
         return result;
     }
 
-    @ExceptionHandler({Exception.class, PlatformException.class})
+    @ExceptionHandler({Exception.class, PlatformRuntimeException.class})
     public static Result<String> exception(Exception ex, HttpServletRequest request, HttpServletResponse response) {
         Result<String> result = resolveException(ex, request.getRequestURI());
         response.setStatus(result.getStatus());
@@ -166,7 +166,7 @@ public class SecurityGlobalExceptionHandler {
             OAuth2Error oAuth2Error = oAuth2AuthenticationException.getError();
             if (EXCEPTION_DICTIONARY.containsKey(oAuth2Error.getErrorCode())) {
                 Feedback feedback = EXCEPTION_DICTIONARY.get(oAuth2Error.getErrorCode());
-                Result<String> result = Result.failure(feedback);
+                Result<String> result = Result.failure(feedback, oAuth2Error.getErrorCode());
                 result.path(oAuth2Error.getUri());
                 result.stackTrace(exception.getStackTrace());
                 result.detail(exception.getMessage());
@@ -183,7 +183,7 @@ public class SecurityGlobalExceptionHandler {
         } else {
             String exceptionName = exception.getClass().getSimpleName();
             if (StringUtils.isNotEmpty(exceptionName) && EXCEPTION_DICTIONARY.containsKey(exceptionName)) {
-                Feedback feedback =  EXCEPTION_DICTIONARY.get(exceptionName);
+                Feedback feedback = EXCEPTION_DICTIONARY.get(exceptionName);
                 return Result.failure(feedback);
             } else {
                 reason = exception;

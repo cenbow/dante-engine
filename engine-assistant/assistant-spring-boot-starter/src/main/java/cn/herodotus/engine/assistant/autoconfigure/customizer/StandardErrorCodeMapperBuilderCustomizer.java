@@ -16,10 +16,10 @@
 
 package cn.herodotus.engine.assistant.autoconfigure.customizer;
 
-import cn.herodotus.engine.assistant.core.constants.ErrorCodeMapperBuilderOrdered;
-import cn.herodotus.engine.assistant.core.constants.ErrorCodes;
-import cn.herodotus.engine.assistant.core.function.ErrorCodeMapperBuilderCustomizer;
-import cn.herodotus.engine.assistant.core.exception.ErrorCodeMapperBuilder;
+import cn.herodotus.engine.assistant.definition.constants.ErrorCodeMapperBuilderOrdered;
+import cn.herodotus.engine.assistant.definition.constants.ErrorCodes;
+import cn.herodotus.engine.assistant.definition.function.ErrorCodeMapperBuilderCustomizer;
+import cn.herodotus.engine.assistant.definition.support.ErrorCodeMapperBuilder;
 import org.springframework.core.Ordered;
 
 /**
@@ -48,7 +48,7 @@ public class StandardErrorCodeMapperBuilderCustomizer implements ErrorCodeMapper
                 .forbidden(ErrorCodes.INSUFFICIENT_SCOPE, ErrorCodes.SQL_INJECTION_REQUEST)
                 .methodNotAllowed(ErrorCodes.HTTP_REQUEST_METHOD_NOT_SUPPORTED)
                 .notAcceptable(ErrorCodes.UNSUPPORTED_GRANT_TYPE, ErrorCodes.UNSUPPORTED_RESPONSE_TYPE, ErrorCodes.UNSUPPORTED_TOKEN_TYPE)
-                .preconditionFailed(ErrorCodes.INVALID_REDIRECT_URI, ErrorCodes.INVALID_REQUEST, ErrorCodes.INVALID_SCOPE)
+                .preconditionFailed(ErrorCodes.INVALID_REDIRECT_URI, ErrorCodes.INVALID_REQUEST, ErrorCodes.INVALID_SCOPE, ErrorCodes.METHOD_ARGUMENT_NOT_VALID)
                 .unsupportedMediaType(ErrorCodes.HTTP_MEDIA_TYPE_NOT_ACCEPTABLE)
                 .internalServerError(ErrorCodes.SERVER_ERROR,
                         ErrorCodes.HTTP_MESSAGE_NOT_READABLE_EXCEPTION,
@@ -57,9 +57,12 @@ public class StandardErrorCodeMapperBuilderCustomizer implements ErrorCodeMapper
                         ErrorCodes.MISSING_SERVLET_REQUEST_PARAMETER_EXCEPTION,
                         ErrorCodes.NULL_POINTER_EXCEPTION,
                         ErrorCodes.TYPE_MISMATCH_EXCEPTION)
-                .notImplemented(ErrorCodes.PROPERTY_VALUE_IS_NOT_SET, ErrorCodes.URL_FORMAT_INCORRECT, ErrorCodes.ILLEGAL_SYMMETRIC_KEY)
+                .notImplemented(ErrorCodes.PROPERTY_VALUE_IS_NOT_SET_EXCEPTION, ErrorCodes.URL_FORMAT_INCORRECT_EXCEPTION, ErrorCodes.ILLEGAL_SYMMETRIC_KEY, ErrorCodes.DISCOVERED_UNRECORDED_ERROR_EXCEPTION)
                 .serviceUnavailable(ErrorCodes.COOKIE_THEFT, ErrorCodes.INVALID_COOKIE, ErrorCodes.PROVIDER_NOT_FOUND, ErrorCodes.TEMPORARILY_UNAVAILABLE, ErrorCodes.SEARCH_IP_LOCATION)
-                .customize(ErrorCodes.TRANSACTION_ROLLBACK);
+                .customize(ErrorCodes.TRANSACTION_ROLLBACK,
+                        ErrorCodes.BAD_SQL_GRAMMAR,
+                        ErrorCodes.DATA_INTEGRITY_VIOLATION,
+                        ErrorCodes.PIPELINE_INVALID_COMMANDS);
     }
 
     @Override

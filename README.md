@@ -5,15 +5,15 @@
 ---
 
 <p align="center">
-    <a href="https://github.com/spring-projects/spring-authorization-server" target="_blank"><img src="https://img.shields.io/badge/Spring%20Authorization%20Server-1.1.3-blue.svg?logo=spring" alt="Spring Authorization Server 1.1.3"></a>
-    <a href="https://spring.io/projects/spring-boot" target="_blank"><img src="https://shields.io/badge/Spring%20Boot-3.1.5-blue.svg?logo=spring" alt="Spring Boot 3.1.5"></a>
-    <a href="https://spring.io/projects/spring-cloud" target="_blank"><img src="https://shields.io/badge/Spring%20Cloud-2022.0.4-blue.svg?logo=spring" alt="Spring Cloud 2022.0.4"></a>
-    <a href="https://github.com/alibaba/spring-cloud-alibaba" target="_blank"><img src="https://shields.io/badge/Spring%20Cloud%20Alibaba-2022.0.0.0-blue.svg?logo=alibabadotcom" alt="Spring Cloud Alibaba 2022.0.0.0"></a>
-    <a href="https://github.com/Tencent/spring-cloud-tencent" target="_blank"><img src="https://img.shields.io/badge/Spring%20Cloud%20Tencent-1.12.4--2022.0.4-blue.svg?logo=tencentqq" alt="Spring Cloud Tencent 1.12.4-2022.0.4"></a>
-    <a href="https://nacos.io/zh-cn/index.html" target="_blank"><img src="https://shields.io/badge/Nacos-2.2.4-brightgreen.svg?logo=alibabadotcom" alt="Nacos 2.2.4"></a>
+    <a href="https://github.com/spring-projects/spring-authorization-server" target="_blank"><img src="https://img.shields.io/badge/Spring%20Authorization%20Server-1.2.3-blue.svg?logo=spring" alt="Spring Authorization Server 1.2.3"></a>
+    <a href="https://spring.io/projects/spring-boot" target="_blank"><img src="https://shields.io/badge/Spring%20Boot-3.2.4-blue.svg?logo=spring" alt="Spring Boot 3.2.4"></a>
+    <a href="https://spring.io/projects/spring-cloud" target="_blank"><img src="https://shields.io/badge/Spring%20Cloud-2023.0.1-blue.svg?logo=spring" alt="Spring Cloud 2023.0.1"></a>
+    <a href="https://github.com/alibaba/spring-cloud-alibaba" target="_blank"><img src="https://shields.io/badge/Spring%20Cloud%20Alibaba-2023.0.0.0-blue.svg?logo=alibabadotcom" alt="Spring Cloud Alibaba 2023.0.0.0"></a>
+    <a href="https://github.com/Tencent/spring-cloud-tencent" target="_blank"><img src="https://img.shields.io/badge/Spring%20Cloud%20Tencent-1.13.1--2023.0.0-blue.svg?logo=tencentqq" alt="Spring Cloud Tencent 1.13.1-2023.0.0"></a>
+    <a href="https://nacos.io/zh-cn/index.html" target="_blank"><img src="https://shields.io/badge/Nacos-2.3.2-brightgreen.svg?logo=alibabadotcom" alt="Nacos 2.3.2"></a>
 </p>
 <p align="center">
-    <a href="#" target="_blank"><img src="https://shields.io/badge/Version-3.1.5.7-red.svg?logo=spring" alt="Version 3.1.5.7"></a>
+    <a href="#" target="_blank"><img src="https://shields.io/badge/Version-3.2.4.2-red.svg?logo=spring" alt="Version 3.2.4.2"></a>
     <a href="https://bell-sw.com/pages/downloads/#downloads" target="_blank"><img src="https://img.shields.io/badge/JDK-17%2B-green.svg?logo=openjdk" alt="Java 17"></a>
     <a href="./LICENSE"><img src="https://shields.io/badge/License-LGPL--3.0-blue.svg" alt="License LGPL-3.0"></a>
     <a href="https://www.herodotus.cn"><img src="https://visitor-badge.laobi.icu/badge?page_id=dante-cloud&title=Total%20Visits" alt="Total Visits"></a>
@@ -33,7 +33,7 @@
 
 ## 重要说明
 
-因 Spring Boot 2.7.X 和 3.0.X 将分别于 2023年11月18日 和 2023年11月24日 停止维护，考虑到技术发展趋势，决定停止 Dante Cloud 2.7.X 版本代码的维护，专注 3.1.X 维护及 3.2.X 开发。2.7.16.Final 版本是 Dante Cloud 2.7.X 系列最后一个版本，代码仍旧会保留，可在工程 2.7.X 分支中获取。
+因 Spring Boot 2.7.X 和 3.0.X 已于 2023年11月24日 和 2023年11月24日 停止维护，考虑到技术发展趋势，决定停止 Dante Cloud 2.7.X 版本代码的维护，专注 3.1.X 维护及 3.2.X 开发。2.7.16.Final 版本是 Dante Cloud 2.7.X 系列最后一个版本，代码仍旧会保留，可在工程 2.7.X 分支中获取。
 
 ## 项目由来
 
@@ -142,7 +142,13 @@ dante-engine
 └──  readme -- README 相关素材放置目录
 ```
 
+## 安全测试
+
+Dante Cloud 已通过由第三方进行的软件出厂安全测试。详情参见：[安全测试](https://www.herodotus.cn/guide/get-start/project-introduction.html#%E4%BA%94-%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95)
+
 ## 开源协议
+
+> 说明：为保护作者权益，Dante Engine 自 3.2.0.0 版本开始，开源协议修改为 LGPL。Dante Engine 3.1.X 以及之前版本仍旧遵循 Apache 2.0 开源协议。
 
 ![开源协议](./readme/images/lgplv3-147x51.png)
 
@@ -154,15 +160,16 @@ LGPL 是 GPL 的一个为主要为类库使用设计的开源协议。和 GPL �
 
 但是如果修改 LGPL 协议的代码或者衍生，则所有修改的代码，涉及修改部分的额外代码和衍生的代码都必须采用 LGPL 协议。因此 LGPL 协议的开源代码很适合作为第三方类库被商业软件引用，但不适合希望以 LGPL 协议代码为基础，通过修改和衍生的方式做二次开发的商业软件采用。
 
-### 用户权益
+### 授权声明
 
-允许以引入不改源码的形式免费用于学习、毕设、公司项目、私活等。
+本项目基于 GNU LESSER GENERAL PUBLIC LICENSE Version 3 (LGPL V3) 开源协议，可用于商业项目，但必须遵守以下补充条款。
 
-特殊情况修改代码，但仍然想闭源需经过作者同意。
-
-对未经过授权和不遵循 LGPL 协议二次开源或者商业化我们将追究到底。
-
-参考请注明：参考自 Dante Cloud：https://gitee.com/dromara/dante-cloud 或 Dante Engine：https://gitee.com/herodotus/dante-engine ，另请遵循 LGPL 协议。
+- 不得将本软件应用于危害国家安全、荣誉和利益的行为，不能以任何形式用于非法为目的的行为。
+- 允许以引入、不改源码的形式免费用于学习、毕设、公司项目、私活等。 特殊情况修改代码，但仍然想闭源需经过作者同意。
+- 对未经过授权和不遵循 LGPL 协议二次开源或者商业化我们将追究到底。
+- 任何基于本软件而产生的一切法律纠纷和责任，均与作者无关。
+- 如果你对本软件有改进，希望可以贡献给我们，双向奔赴互相成就才是王道。
+- 参考请注明：参考自 Dante Cloud：https://gitee.com/dromara/dante-cloud 或 Dante Engine：https://gitee.com/herodotus/dante-engine ，另请遵循 LGPL V3 协议。
 
 ## 阅读顺序
 
@@ -199,6 +206,27 @@ LGPL 是 GPL 的一个为主要为类库使用设计的开源协议。和 GPL �
 | 3  | [Spring Boot 3 之自动配置与注入顺序控制](https://www.foxitsoftware.cn/bhds/payRead/1vzfy1/)     | 付费，有试读章节 | Spring 生态重要知识点，掌握步入微服务的关键开关                                                      | ![Spring Boot 3 之自动配置与注入顺序控制](./readme/cookbook/0003.png)      |
 | 4  | [Spring Cloud 之 Session 共享及一致性处理](https://www.foxitsoftware.cn/bhds/payRead/pmq4wy) | 付费，有试读章节 | 深入浅出剖析微服务架构 Session 共享技术难点                                                       | ![Spring Cloud 之 Session 共享及一致性处理](./readme/cookbook/0004.png) |
 | 5  | [OAuth 2 中的鉴权和动态接口鉴权](https://www.foxitsoftware.cn/bhds/payRead/uxq6fi)             | 付费，有试读章节 | 带您跟随 Dante Cloud 源代码，由浅入深全面掌握 Spring Security 5 & 6 以及基于 OAuth2 的微服务动态接口鉴权的原理与实现 | ![OAuth 2 中的鉴权和动态接口鉴权](./readme/cookbook/0005.png)             |
+| 6  | [Spring Boot 3 之 Rest 接口传参方式详解](https://www.foxitsoftware.cn/bhds/payRead/kcsegy)   | 付费，有试读章节 | 一文让你彻底掌握 Spring Boot Rest 各种传参方式和方法的“正确打开方式”                                     | ![Spring Boot 3 之 Rest 接口传参方式详解](./readme/cookbook/0007.png)   |
+
+## 版本分支
+
+### 一、版本号说明
+
+本系统版本号，分为四段。
+
+- 第一段和第二段，与 Spring Boot 版本对应，根据采用的 Spring Boot 版本变更。例如，当前采用 Spring Boot 2.4.6 版本，那么就以
+  2.4.X.X 开头
+- 第三段，表示系统功能的变化
+- 第四段，表示系统功能维护及优化情况
+
+### 二、分支说明
+
+| 分支名称    | 对应 Spring 生态版本                          | 对应 JDK 版本 | 用途             | 现状                                                      |
+|---------|-----------------------------------------|-----------|----------------|---------------------------------------------------------|
+| master  | Spring Boot 3.2 和 Spring Cloud 2023.0.1 | JDK 17    | 主要发布分支         | 可使用，但 Spring Cloud Alibaba、Tencent 等生态并未发布正式适配版，请谨慎选择使用 |
+| develop | Spring Boot 3.2 和 Spring Cloud 2023.0.1 | JDK 17    | Development 分支 | 新功能、ISSUE 均以此分支作为开发，发布后会 PR 至 master 分支                 |
+| 3.1.X   | Spring Boot 3.1 和 Spring Cloud 2022.0.X | JDK 17    | Stable 代码分支    | 稳定可用版本分支，2024年5月，Spring Boot 3.3 发布后将会停止维护              |
+| 2.7.X   | Spring Boot 2.7 和 Spring Cloud 2021.0.X | JDK 8     | 历史版本分支         | 基于 Spring Boot 2.7 时代开发的代码分支，不再维护                       |
 
 ## 参与贡献
 
@@ -211,10 +239,21 @@ LGPL 是 GPL 的一个为主要为类库使用设计的开源协议。和 GPL �
 
 ## 交流反馈
 
-- 欢迎提交[ISSUS](https://gitee.com/dromara/dante-cloud/issues) ，请写清楚问题的具体原因，重现步骤和环境
+- 欢迎提交[ISSUE](https://gitee.com/dromara/dante-cloud/issues) ，请写清楚问题的具体原因，重现步骤和环境
 
 ## 关联项目
 
 - Dante 主工程地址：[https://gitee.com/dromara/dante-cloud](https://gitee.com/dromara/dante-cloud)
 - Dante 单体版示例工程地址：[https://gitee.com/herodotus/dante-cloud-athena](https://gitee.com/herodotus/dante-cloud-athena)
 - Dante 前端工程地址：[https://gitee.com/herodotus/dante-cloud-ui](https://gitee.com/herodotus/dante-cloud-ui)
+
+## 赞助人列表
+
+| 序号 |   赞助人    |    赞助时间    | 序号 |     赞助人     |    赞助时间    | 序号 |    赞助人    |    赞助时间    |
+|:--:|:--------:|:----------:|:--:|:-----------:|:----------:|:--:|:---------:|:----------:|
+| 1  |  ご沉默菋噵   | 2021-10-25 | 2  |    偷土豆的人    | 2021-11-24 | 3  |  lorron   | 2022-04-04 |
+| 4  |   在云端    | 2022-12-26 | 5  |     西晽      | 2022-12-27 | 6  | p911gt3rs | 2023-01-03 |
+| 7  |  jacsty  | 2023-01-31 | 8  | hubert_rust | 2023-03-16 | 9  |  Zkey Z   | 2023-03-18 |
+| 10 |   志国欧巴   | 2023-03-27 | 11 |   michael   | 2023-04-07 | 12 |   大叔丨小巷   | 2023-04-11 |
+| 13 | sun_left | 2023-04-19 | 14 | time 丶 sand | 2023-07-06 | 15 |  印第安老斑鸠   | 2023-09-09 |
+| 16 |   一阵风    | 2023-12-10 | 17 |    Jack     | 2024-03-01 | 18 |           |            |

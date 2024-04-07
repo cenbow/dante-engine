@@ -16,7 +16,7 @@
 
 package cn.herodotus.engine.supplier.upms.rest.controller.security;
 
-import cn.herodotus.engine.assistant.core.domain.Result;
+import cn.herodotus.engine.assistant.definition.domain.Result;
 import cn.herodotus.engine.data.core.service.WriteableService;
 import cn.herodotus.engine.rest.core.annotation.AccessLimited;
 import cn.herodotus.engine.rest.core.controller.BaseWriteableRestController;
@@ -117,7 +117,7 @@ public class SysElementController extends BaseWriteableRestController<SysElement
     @Parameters({
             @Parameter(name = "id", required = true, in = ParameterIn.PATH, description = "实体ID，@Id注解对应的实体属性")
     })
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public Result<SysElement> findById(@PathVariable String id) {
         return super.findById(id);
     }

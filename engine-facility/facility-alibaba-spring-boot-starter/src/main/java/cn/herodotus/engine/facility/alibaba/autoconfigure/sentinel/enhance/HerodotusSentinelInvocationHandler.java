@@ -49,12 +49,11 @@ public class HerodotusSentinelInvocationHandler implements InvocationHandler {
 
     private final Map<Method, MethodHandler> dispatch;
 
-    private FallbackFactory fallbackFactory;
+    private FallbackFactory<?> fallbackFactory;
 
     private Map<Method, Method> fallbackMethodMap;
 
-    HerodotusSentinelInvocationHandler(Target<?> target, Map<Method, MethodHandler> dispatch,
-                                       FallbackFactory fallbackFactory) {
+    HerodotusSentinelInvocationHandler(Target<?> target, Map<Method, MethodHandler> dispatch, FallbackFactory<?> fallbackFactory) {
         this.target = checkNotNull(target, "target");
         this.dispatch = checkNotNull(dispatch, "dispatch");
         this.fallbackFactory = fallbackFactory;
@@ -76,27 +75,30 @@ public class HerodotusSentinelInvocationHandler implements InvocationHandler {
     }
 
     @Override
-    public Object invoke(final Object proxy, final Method method, final Object[] args)
-            throws Throwable {
-        if ("equals".equals(method.getName())) {
-            try {
-                Object otherHandler = args.length > 0 && args[0] != null
-                        ? Proxy.getInvocationHandler(args[0])
-                        : null;
-                return equals(otherHandler);
-            } catch (IllegalArgumentException e) {
-                return false;
+    public Object invoke(final Object proxy, final Method method, final Object[] args) throws Throwable {
+        switch (method.getName()) {
+            case "equals" -> {
+                try {
+                    Object otherHandler = args.length > 0 && args[0] != null
+                            ? Proxy.getInvocationHandler(args[0])
+                            : null;
+                    return equals(otherHandler);
+                } catch (IllegalArgumentException e) {
+                    return false;
+                }
             }
-        } else if ("hashCode".equals(method.getName())) {
-            return hashCode();
-        } else if ("toString".equals(method.getName())) {
-            return toString();
+            case "hashCode" -> {
+                return hashCode();
+            }
+            case "toString" -> {
+                return toString();
+            }
         }
 
         Object result;
         MethodHandler methodHandler = this.dispatch.get(method);
         // only handle by HardCodedTarget
-        if (target instanceof Target.HardCodedTarget hardCodedTarget) {
+        if (target instanceof Target.HardCodedTarget<?> hardCodedTarget) {
             MethodMetadata methodMetadata = SentinelContractHolder.METADATA_MAP
                     .get(hardCodedTarget.type().getName()
                             + Feign.configKey(hardCodedTarget.type(), method));
@@ -118,9 +120,7 @@ public class HerodotusSentinelInvocationHandler implements InvocationHandler {
                     }
                     if (fallbackFactory != null) {
                         try {
-                            Object fallbackResult = fallbackMethodMap.get(method)
-                                    .invoke(fallbackFactory.create(ex), args);
-                            return fallbackResult;
+                            return fallbackMethodMap.get(method).invoke(fallbackFactory.create(ex), args);
                         } catch (IllegalAccessException e) {
                             // shouldn't happen as method is public due to being an
                             // interface

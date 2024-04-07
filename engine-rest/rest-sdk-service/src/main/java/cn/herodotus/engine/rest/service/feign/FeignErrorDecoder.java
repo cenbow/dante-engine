@@ -16,7 +16,7 @@
 
 package cn.herodotus.engine.rest.service.feign;
 
-import cn.herodotus.engine.assistant.core.domain.Result;
+import cn.herodotus.engine.assistant.definition.domain.Result;
 import cn.herodotus.engine.assistant.core.json.jackson2.utils.Jackson2Utils;
 import cn.herodotus.engine.rest.core.exception.FeignDecodeIOException;
 import com.fasterxml.jackson.databind.JavaType;
@@ -48,7 +48,7 @@ public class FeignErrorDecoder implements ErrorDecoder {
             Result<String> result = Result.failure("Feign 远程调用" + methodKey + " 出错");
             JavaType javaType = Jackson2Utils.getTypeFactory().constructParametricType(Result.class, String.class);
             Result<String> object = Jackson2Utils.toObject(content, javaType);
-            if (ObjectUtils.isEmpty(object)) {
+            if (ObjectUtils.isNotEmpty(object)) {
                 result = object;
             }
             return new FeignRemoteCallExceptionWrapper(result);

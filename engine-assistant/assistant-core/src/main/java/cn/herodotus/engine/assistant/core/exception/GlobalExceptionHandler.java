@@ -16,10 +16,10 @@
 
 package cn.herodotus.engine.assistant.core.exception;
 
-import cn.herodotus.engine.assistant.core.constants.ErrorCodes;
-import cn.herodotus.engine.assistant.core.definition.exception.HerodotusException;
-import cn.herodotus.engine.assistant.core.domain.Feedback;
-import cn.herodotus.engine.assistant.core.domain.Result;
+import cn.herodotus.engine.assistant.definition.constants.ErrorCodes;
+import cn.herodotus.engine.assistant.definition.domain.Feedback;
+import cn.herodotus.engine.assistant.definition.domain.Result;
+import cn.herodotus.engine.assistant.definition.exception.HerodotusException;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -74,7 +74,7 @@ public class GlobalExceptionHandler {
             String exceptionName = ex.getClass().getSimpleName();
             if (StringUtils.isNotEmpty(exceptionName) && EXCEPTION_DICTIONARY.containsKey(exceptionName)) {
                 Feedback feedback = EXCEPTION_DICTIONARY.get(exceptionName);
-                result = Result.failure(feedback);
+                result = Result.failure(feedback, exceptionName);
             } else {
                 log.warn("[Herodotus] |- Global Exception Handler,  Can not find the exception name [{}] in dictionary, please do optimize ", exceptionName);
             }
