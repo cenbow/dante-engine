@@ -36,8 +36,8 @@ public class SnowFlakeIDGenerator implements IdentifierGenerator, StandardGenera
     @Override
     public Object generate(SharedSessionContractImplementor session, Object object) {
         if (String.class.isAssignableFrom(propertyType)) {
-            return snowflake.nextIdStr();
+            return snowflake.nextStr();
         }
-        return snowflake.nextId();
+        return snowflake.next();
     }
 }
