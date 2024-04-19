@@ -22,13 +22,13 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.4</version>
+        <version>3.2.5</version>
         <relativePath/>
     </parent>
 
     <groupId>cn.herodotus.engine</groupId>
     <artifactId>dependencies</artifactId>
-    <version>3.2.4.3</version>
+    <version>3.2.5.0</version>
     <packaging>pom</packaging>
 
     <description>基于 Spring Authorization Server 的 Dante Cloud Dependencies</description>
@@ -69,35 +69,36 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <!--Spring 家族-->
         <spring-boot-admin.version>3.2.3</spring-boot-admin.version>
-        <spring-boot-dependencies.version>3.2.4</spring-boot-dependencies.version>
+        <spring-boot-dependencies.version>3.2.5</spring-boot-dependencies.version>
         <spring-cloud-dependencies.version>2023.0.1</spring-cloud-dependencies.version>
         <spring-cloud-alibaba-dependencies.version>2023.0.0.0-RC1</spring-cloud-alibaba-dependencies.version>
         <spring-cloud-tencent-dependencies.version>1.13.1-2023.0.0</spring-cloud-tencent-dependencies.version>
         <!--Maven Plugin 相关组件-->
         <archetype-packaging.verison>3.2.1</archetype-packaging.verison>
         <mapstruct-processor.version>1.5.5.Final</mapstruct-processor.version>
-        <maven-gpg-plugin.version>3.2.2</maven-gpg-plugin.version>
+        <maven-gpg-plugin.version>3.2.3</maven-gpg-plugin.version>
         <!--开源通用工具包-->
         <animated-gif-lib.version>1.4</animated-gif-lib.version>
         <antisamy.version>1.7.5</antisamy.version>
         <commons-collections4.version>4.4</commons-collections4.version>
         <commons-fileupload.version>1.5</commons-fileupload.version>
-        <commons-io.version>2.16.0</commons-io.version>
+        <commons-io.version>2.16.1</commons-io.version>
+        <commons-text.version>1.12.0</commons-text.version>
         <guava.version>33.1.0-jre</guava.version>
         <zxing.version>3.5.3</zxing.version>
         <!-- 应用开发辅助工具组件 -->
-        <redisson.version>3.27.2</redisson.version>
+        <redisson.version>3.28.0</redisson.version>
         <p6spy.version>3.9.1</p6spy.version>
         <springdoc.version>2.5.0</springdoc.version>
         <logstash-logback-encoder.version>7.4</logstash-logback-encoder.version>
         <skywalking.version>9.2.0</skywalking.version>
         <minio.version>8.5.9</minio.version>
-        <aws-java-sdk-s3.version>1.12.696</aws-java-sdk-s3.version>
+        <aws-java-sdk-s3.version>1.12.704</aws-java-sdk-s3.version>
         <org.eclipse.paho.version>1.2.5</org.eclipse.paho.version>
         <influxdb-client.version>7.0.0</influxdb-client.version>
         <!-- 阿里巴巴开源工具依赖 -->
         <fastjson.version>1.2.83</fastjson.version>
-        <fastjson2.version>2.0.48</fastjson2.version>
+        <fastjson2.version>2.0.49</fastjson2.version>
         <jetcache.version>2.7.5</jetcache.version>
         <nacos.version>2.3.2</nacos.version>
         <transmittable-thread-local.version>2.14.5</transmittable-thread-local.version>
@@ -122,17 +123,16 @@
         <jquery.version>3.7.1</jquery.version>
         <jquery-backstretch.version>2.1.17</jquery-backstretch.version>
         <mdi__font.version>7.4.47</mdi__font.version>
-        <quasar.version>2.15.2</quasar.version>
+        <quasar.version>2.15.3</quasar.version>
         <uniform.version>2.1.2-1</uniform.version>
-        <vue.version>3.4.21</vue.version>
+        <vue.version>3.4.22</vue.version>
         <!--厂商应用集成-->
         <aliyun-java-sdk-core.version>4.6.4</aliyun-java-sdk-core.version>
         <aliyun-java-sdk-green.version>3.6.6</aliyun-java-sdk-green.version>
         <aliyun-sdk-oss.version>3.17.4</aliyun-sdk-oss.version>
-        <alipay-sdk-java.version>4.39.31.ALL</alipay-sdk-java.version>
+        <alipay-sdk-java.version>4.39.42.ALL</alipay-sdk-java.version>
         <com.baidu.aip.version>4.16.18</com.baidu.aip.version>
         <!--以下为特殊处理, 统一版本处理漏洞等-->
-        <commons-text.version>1.10.0</commons-text.version>
         <mysql.version>8.3.0</mysql.version>
         <org.json.version>20240303</org.json.version>
         <okio.version>3.9.0</okio.version>
@@ -141,11 +141,11 @@
         <checker-qual.version>3.42.0</checker-qual.version>
         <maven-source-plugin.version>3.3.1</maven-source-plugin.version>
         <git-commit-id-maven-plugin.version>8.0.2</git-commit-id-maven-plugin.version>
-        <bcprov-jdk18on.version>1.78</bcprov-jdk18on.version>
-        <bcpkix-jdk18on.version>1.78</bcpkix-jdk18on.version>
+        <bcprov-jdk18on.version>1.78.1</bcprov-jdk18on.version>
+        <bcpkix-jdk18on.version>1.78.1</bcpkix-jdk18on.version>
         <dom4j.version>2.1.4</dom4j.version>
         <snappy-java.version>1.1.10.5</snappy-java.version>
-        <sqlite-jdbc.version>3.45.2.0</sqlite-jdbc.version>
+        <sqlite-jdbc.version>3.45.3.0</sqlite-jdbc.version>
     </properties>
 
     <dependencyManagement>
