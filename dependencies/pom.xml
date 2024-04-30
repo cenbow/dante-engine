@@ -103,7 +103,7 @@
         <nacos.version>2.3.2</nacos.version>
         <transmittable-thread-local.version>2.14.5</transmittable-thread-local.version>
         <!-- 国内开源通用组件 -->
-        <hutool.version>6.0.0-M11</hutool.version>
+        <hutool.version>6.0.0-M12</hutool.version>
         <hutool-5.X.version>5.8.27</hutool-5.X.version>
         <okhttps.version>4.0.2</okhttps.version>
         <weixin-java-sdk.version>4.6.0</weixin-java-sdk.version>
