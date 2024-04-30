@@ -131,7 +131,7 @@ public class CacheRedissonAutoConfiguration {
                     List<String> nodes = redisProperties.getSentinel().getNodes();
                     nodes.stream().map(a -> redissonProperties.getProtocol() + a).forEach(sentinelServersConfig::addSentinelAddress);
                 }
-                if (StringUtils.isBlank(sentinelServersConfig.getPassword())) {
+                if (StringUtils.isBlank(sentinelServersConfig.getPassword()) && StringUtils.isNotBlank(redisProperties.getPassword())) {
                     // 使用 spring.data.redis 的配置
                     sentinelServersConfig.setPassword(redisProperties.getPassword());
                 }
