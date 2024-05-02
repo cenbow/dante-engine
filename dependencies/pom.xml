@@ -28,7 +28,7 @@
 
     <groupId>cn.herodotus.engine</groupId>
     <artifactId>dependencies</artifactId>
-    <version>3.2.5.1</version>
+    <version>3.2.5.2</version>
     <packaging>pom</packaging>
 
     <description>基于 Spring Authorization Server 的 Dante Cloud Dependencies</description>
@@ -76,7 +76,7 @@
         <!--Maven Plugin 相关组件-->
         <archetype-packaging.verison>3.2.1</archetype-packaging.verison>
         <mapstruct-processor.version>1.5.5.Final</mapstruct-processor.version>
-        <maven-gpg-plugin.version>3.2.3</maven-gpg-plugin.version>
+        <maven-gpg-plugin.version>3.2.4</maven-gpg-plugin.version>
         <!--开源通用工具包-->
         <animated-gif-lib.version>1.4</animated-gif-lib.version>
         <antisamy.version>1.7.5</antisamy.version>
@@ -93,7 +93,7 @@
         <logstash-logback-encoder.version>7.4</logstash-logback-encoder.version>
         <skywalking.version>9.2.0</skywalking.version>
         <minio.version>8.5.9</minio.version>
-        <aws-java-sdk-s3.version>1.12.708</aws-java-sdk-s3.version>
+        <aws-java-sdk-s3.version>1.12.713</aws-java-sdk-s3.version>
         <org.eclipse.paho.version>1.2.5</org.eclipse.paho.version>
         <influxdb-client.version>7.0.0</influxdb-client.version>
         <!-- 阿里巴巴开源工具依赖 -->
@@ -111,7 +111,7 @@
         <!--第三方starter-->
         <jasypt-spring-boot-starter.version>3.0.5</jasypt-spring-boot-starter.version>
         <camunda-bpm-spring-boot-starter-rest.version>7.21.0</camunda-bpm-spring-boot-starter-rest.version>
-        <sms4j-spring-boot-starter.version>3.2.0</sms4j-spring-boot-starter.version>
+        <sms4j-spring-boot-starter.version>3.2.1</sms4j-spring-boot-starter.version>
         <mybatis-plus-boot-starter.version>3.5.6</mybatis-plus-boot-starter.version>
         <mybatis-plus-generator.version>3.5.6</mybatis-plus-generator.version>
         <mybatis.version>3.5.16</mybatis.version>
@@ -125,12 +125,12 @@
         <mdi__font.version>7.4.47</mdi__font.version>
         <quasar.version>2.15.3</quasar.version>
         <uniform.version>2.1.2-1</uniform.version>
-        <vue.version>3.4.23</vue.version>
+        <vue.version>3.4.25</vue.version>
         <!--厂商应用集成-->
         <aliyun-java-sdk-core.version>4.6.4</aliyun-java-sdk-core.version>
         <aliyun-java-sdk-green.version>3.6.6</aliyun-java-sdk-green.version>
         <aliyun-sdk-oss.version>3.17.4</aliyun-sdk-oss.version>
-        <alipay-sdk-java.version>4.39.52.ALL</alipay-sdk-java.version>
+        <alipay-sdk-java.version>4.39.60.ALL</alipay-sdk-java.version>
         <com.baidu.aip.version>4.16.18</com.baidu.aip.version>
         <!--以下为特殊处理, 统一版本处理漏洞等-->
         <mysql.version>8.3.0</mysql.version>
@@ -138,7 +138,7 @@
         <okio.version>3.9.0</okio.version>
         <xnio.version>3.8.14.Final</xnio.version>
         <httpclient.version>4.5.14</httpclient.version>
-        <checker-qual.version>3.42.0</checker-qual.version>
+        <checker-qual.version>3.43.0</checker-qual.version>
         <maven-source-plugin.version>3.3.1</maven-source-plugin.version>
         <git-commit-id-maven-plugin.version>8.0.2</git-commit-id-maven-plugin.version>
         <bcprov-jdk18on.version>1.78.1</bcprov-jdk18on.version>

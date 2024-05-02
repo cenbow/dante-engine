@@ -19,18 +19,21 @@ package cn.herodotus.engine.data.tenant.configuration;
 import cn.herodotus.engine.data.tenant.annotation.ConditionalOnDatabaseApproach;
 import cn.herodotus.engine.data.tenant.datasource.MultiTenantDataSourceFactory;
 import cn.herodotus.engine.data.tenant.hibernate.DatabaseMultiTenantConnectionProvider;
+import cn.herodotus.engine.data.tenant.hibernate.HerodotusHibernatePropertiesProvider;
 import cn.herodotus.engine.data.tenant.properties.MultiTenantProperties;
 import jakarta.annotation.PostConstruct;
-import org.hibernate.cfg.Environment;
-import org.hibernate.context.spi.CurrentTenantIdentifierResolver;
-import org.hibernate.engine.jdbc.connections.spi.MultiTenantConnectionProvider;
+import org.hibernate.boot.model.naming.ImplicitNamingStrategy;
+import org.hibernate.boot.model.naming.PhysicalNamingStrategy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.ObjectProvider;
+import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateProperties;
-import org.springframework.boot.autoconfigure.orm.jpa.HibernateSettings;
+import org.springframework.boot.autoconfigure.orm.jpa.HibernatePropertiesCustomizer;
 import org.springframework.boot.autoconfigure.orm.jpa.JpaProperties;
+import org.springframework.boot.jdbc.SchemaManagementProvider;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -44,7 +47,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 import java.util.Map;
 import java.util.Objects;
-import java.util.function.Supplier;
 
 /**
  * <p>Description: 独立数据库多租户方式配置 </p>
@@ -71,21 +73,27 @@ public class DatabaseApproachConfiguration {
     }
 
     @Bean
-    public MultiTenantConnectionProvider multiTenantConnectionProvider(DataSource dataSource) {
-        DatabaseMultiTenantConnectionProvider herodotusTenantConnectionProvider = new DatabaseMultiTenantConnectionProvider(dataSource);
+    public HibernatePropertiesCustomizer databaseMultiTenantConnectionProvider(DataSource dataSource) {
+        DatabaseMultiTenantConnectionProvider provider = new DatabaseMultiTenantConnectionProvider(dataSource);
         log.debug("[Herodotus] |- Bean [Multi Tenant Connection Provider] Auto Configure.");
-        return herodotusTenantConnectionProvider;
+        return provider;
     }
 
     @Primary
     @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource, HibernateProperties hibernateProperties, JpaVendorAdapter jpaVendorAdapter, JpaProperties jpaProperties, MultiTenantProperties multiTenantProperties, MultiTenantConnectionProvider multiTenantConnectionProvider, CurrentTenantIdentifierResolver currentTenantIdentifierResolver) {
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource, HibernateProperties hibernateProperties,
+                                                                       JpaProperties jpaProperties, JpaVendorAdapter jpaVendorAdapter,
+                                                                       ConfigurableListableBeanFactory beanFactory,
+                                                                       ObjectProvider<SchemaManagementProvider> providers,
+                                                                       ObjectProvider<PhysicalNamingStrategy> physicalNamingStrategy,
+                                                                       ObjectProvider<ImplicitNamingStrategy> implicitNamingStrategy,
+                                                                       ObjectProvider<HibernatePropertiesCustomizer> hibernatePropertiesCustomizers,
+                                                                       MultiTenantProperties multiTenantProperties
+    ) {
 
-        Supplier<String> defaultDdlMode = hibernateProperties::getDdlAuto;
-        Map<String, Object> properties = hibernateProperties.determineHibernateProperties(jpaProperties.getProperties(), new HibernateSettings().ddlAuto(defaultDdlMode));
+        HerodotusHibernatePropertiesProvider provider = new HerodotusHibernatePropertiesProvider(dataSource, hibernateProperties, jpaProperties, beanFactory, providers, physicalNamingStrategy, implicitNamingStrategy, hibernatePropertiesCustomizers);
+        Map<String, Object> properties = provider.getVendorProperties();
 
-        properties.put(Environment.MULTI_TENANT_CONNECTION_PROVIDER, multiTenantConnectionProvider);
-        properties.put(Environment.MULTI_TENANT_IDENTIFIER_RESOLVER, currentTenantIdentifierResolver);
         LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactory.setDataSource(dataSource);
         //此处不能省略，哪怕你使用了 @EntityScan，实际上 @EntityScan 会失效
