@@ -16,8 +16,8 @@
 
 package cn.herodotus.engine.cache.redisson.autoconfigure;
 
-import cn.herodotus.engine.assistant.definition.constants.SymbolConstants;
 import cn.herodotus.engine.assistant.core.utils.ResourceUtils;
+import cn.herodotus.engine.assistant.definition.constants.SymbolConstants;
 import cn.herodotus.engine.cache.redisson.annotation.ConditionalOnRedissonEnabled;
 import cn.herodotus.engine.cache.redisson.properties.RedissonProperties;
 import jakarta.annotation.PostConstruct;
@@ -114,7 +114,7 @@ public class CacheRedissonAutoConfiguration {
                     List<String> nodes = redisProperties.getCluster().getNodes();
                     nodes.stream().map(a -> redissonProperties.getProtocol() + a).forEach(clusterServersConfig::addNodeAddress);
                 }
-                if (StringUtils.isBlank(clusterServersConfig.getPassword())) {
+                if (StringUtils.isBlank(clusterServersConfig.getPassword()) && StringUtils.isNotBlank(redisProperties.getPassword())) {
                     // 使用 spring.data.redis 的
                     clusterServersConfig.setPassword(redisProperties.getPassword());
                 }
@@ -131,7 +131,7 @@ public class CacheRedissonAutoConfiguration {
                     List<String> nodes = redisProperties.getSentinel().getNodes();
                     nodes.stream().map(a -> redissonProperties.getProtocol() + a).forEach(sentinelServersConfig::addSentinelAddress);
                 }
-                if (StringUtils.isBlank(sentinelServersConfig.getPassword())) {
+                if (StringUtils.isBlank(sentinelServersConfig.getPassword()) && StringUtils.isNotBlank(redisProperties.getPassword())) {
                     // 使用 spring.data.redis 的配置
                     sentinelServersConfig.setPassword(redisProperties.getPassword());
                 }
@@ -150,7 +150,7 @@ public class CacheRedissonAutoConfiguration {
                     // 使用 spring.data.redis 的配置
                     singleServerConfig.setAddress(redissonProperties.getProtocol() + redisProperties.getHost() + SymbolConstants.COLON + redisProperties.getPort());
                 }
-                if (StringUtils.isBlank(singleServerConfig.getPassword())) {
+                if (StringUtils.isBlank(singleServerConfig.getPassword()) && StringUtils.isNotBlank(redisProperties.getPassword())) {
                     // 使用 spring.data.redis 的配置
                     singleServerConfig.setPassword(redisProperties.getPassword());
                 }

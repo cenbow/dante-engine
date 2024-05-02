@@ -59,7 +59,7 @@ public class SchemaMultiTenantConnectionProvider implements MultiTenantConnectio
 
     @Override
     public Connection getConnection(String schema) throws SQLException {
-                final Connection connection = getAnyConnection();
+        final Connection connection = getAnyConnection();
         connection.setSchema(schema);
         log.debug("[Herodotus] |- Get connection for schema tenant [{}]", schema);
         return connection;
@@ -67,7 +67,7 @@ public class SchemaMultiTenantConnectionProvider implements MultiTenantConnectio
 
     @Override
     public void releaseConnection(String schema, Connection connection) throws SQLException {
-                connection.setSchema(DefaultConstants.TENANT_ID);
+        connection.setSchema(DefaultConstants.TENANT_ID);
         releaseAnyConnection(connection);
     }
 

@@ -25,7 +25,7 @@ import jakarta.persistence.criteria.Predicate;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.dromara.hutool.http.server.servlet.JakartaServletUtil;
+import org.dromara.hutool.http.server.servlet.ServletUtil;
 import org.dromara.hutool.http.useragent.UserAgent;
 import org.dromara.hutool.http.useragent.UserAgentUtil;
 import org.slf4j.Logger;
@@ -99,7 +99,7 @@ public class OAuth2ComplianceService extends BaseService<OAuth2Compliance, Strin
     }
 
     private String getIp(HttpServletRequest request) {
-        return JakartaServletUtil.getClientIP(request, "");
+        return ServletUtil.getClientIP(request, "");
     }
 
     public OAuth2Compliance toEntity(String principalName, String clientId, String operation, HttpServletRequest request) {

@@ -35,7 +35,7 @@ import java.util.Map;
  * @date : 2022/9/8 18:14
  */
 @Component
-public class HerodotusTenantIdentifierResolver implements CurrentTenantIdentifierResolver, HibernatePropertiesCustomizer {
+public class HerodotusTenantIdentifierResolver implements CurrentTenantIdentifierResolver<String>, HibernatePropertiesCustomizer {
 
     private static final Logger log = LoggerFactory.getLogger(HerodotusTenantIdentifierResolver.class);
 

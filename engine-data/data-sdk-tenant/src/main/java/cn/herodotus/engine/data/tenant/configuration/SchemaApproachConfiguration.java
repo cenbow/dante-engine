@@ -19,9 +19,9 @@ package cn.herodotus.engine.data.tenant.configuration;
 import cn.herodotus.engine.data.tenant.annotation.ConditionalOnSchemaApproach;
 import cn.herodotus.engine.data.tenant.hibernate.SchemaMultiTenantConnectionProvider;
 import jakarta.annotation.PostConstruct;
-import org.hibernate.engine.jdbc.connections.spi.MultiTenantConnectionProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.autoconfigure.orm.jpa.HibernatePropertiesCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -45,9 +45,9 @@ public class SchemaApproachConfiguration {
     }
 
     @Bean
-    public MultiTenantConnectionProvider multiTenantConnectionProvider(DataSource dataSource) {
-        SchemaMultiTenantConnectionProvider schemaMultiTenantConnectionProvider = new SchemaMultiTenantConnectionProvider(dataSource);
+    public HibernatePropertiesCustomizer schemaMultiTenantConnectionProvider(DataSource dataSource) {
+        SchemaMultiTenantConnectionProvider provider = new SchemaMultiTenantConnectionProvider(dataSource);
         log.debug("[Herodotus] |- Bean [Multi Tenant Connection Provider] Auto Configure.");
-        return schemaMultiTenantConnectionProvider;
+        return provider;
     }
 }

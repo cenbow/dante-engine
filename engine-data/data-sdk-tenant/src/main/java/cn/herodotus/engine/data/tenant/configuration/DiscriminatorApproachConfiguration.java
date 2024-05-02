@@ -18,9 +18,9 @@ package cn.herodotus.engine.data.tenant.configuration;
 
 import cn.herodotus.engine.data.tenant.hibernate.HerodotusTenantIdentifierResolver;
 import jakarta.annotation.PostConstruct;
-import org.hibernate.context.spi.CurrentTenantIdentifierResolver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.autoconfigure.orm.jpa.HibernatePropertiesCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -41,9 +41,9 @@ public class DiscriminatorApproachConfiguration {
     }
 
     @Bean
-    public CurrentTenantIdentifierResolver currentTenantIdentifierResolver() {
-        HerodotusTenantIdentifierResolver herodotusTenantIdentifierResolver = new HerodotusTenantIdentifierResolver();
+    public HibernatePropertiesCustomizer herodotusTenantIdentifierResolver() {
+        HerodotusTenantIdentifierResolver resolver = new HerodotusTenantIdentifierResolver();
         log.debug("[Herodotus] |- Bean [Current Tenant Identifier Resolver] Auto Configure.");
-        return herodotusTenantIdentifierResolver;
+        return resolver;
     }
 }
