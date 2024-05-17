@@ -16,7 +16,6 @@
 
 package cn.herodotus.engine.cache.jetcache.stamp;
 
-import cn.herodotus.engine.cache.core.exception.StampDeleteFailedException;
 import cn.herodotus.engine.cache.core.exception.StampHasExpiredException;
 import cn.herodotus.engine.cache.core.exception.StampMismatchException;
 import cn.herodotus.engine.cache.core.exception.StampParameterIllegalException;
@@ -25,6 +24,8 @@ import com.alicp.jetcache.AutoReleaseLock;
 import com.alicp.jetcache.Cache;
 import com.alicp.jetcache.anno.CacheType;
 import org.apache.commons.lang3.ObjectUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
@@ -39,12 +40,12 @@ import java.util.concurrent.TimeUnit;
  */
 public abstract class AbstractStampManager<K, V> implements StampManager<K, V> {
 
+    private static final Logger log = LoggerFactory.getLogger(AbstractStampManager.class);
+
     private static final Duration DEFAULT_EXPIRE = Duration.ofMinutes(30);
 
-    private String cacheName;
-    private CacheType cacheType;
     private Duration expire;
-    private Cache<K, V> cache;
+    private final Cache<K, V> cache;
 
     public AbstractStampManager(String cacheName) {
         this(cacheName, CacheType.BOTH);
@@ -55,10 +56,8 @@ public abstract class AbstractStampManager<K, V> implements StampManager<K, V> {
     }
 
     public AbstractStampManager(String cacheName, CacheType cacheType, Duration expire) {
-        this.cacheName = cacheName;
-        this.cacheType = cacheType;
         this.expire = expire;
-        this.cache = JetCacheUtils.create(this.cacheName, this.cacheType, this.expire);
+        this.cache = JetCacheUtils.create(cacheName, cacheType, this.expire);
     }
 
     /**
@@ -80,7 +79,7 @@ public abstract class AbstractStampManager<K, V> implements StampManager<K, V> {
     }
 
     @Override
-    public boolean check(K key, V value) {
+    public boolean check(K key, V value) throws StampParameterIllegalException, StampHasExpiredException, StampMismatchException {
         if (ObjectUtils.isEmpty(value)) {
             throw new StampParameterIllegalException("Parameter Stamp value is null");
         }
@@ -103,10 +102,10 @@ public abstract class AbstractStampManager<K, V> implements StampManager<K, V> {
     }
 
     @Override
-    public void delete(K key) throws StampDeleteFailedException {
+    public void delete(K key) {
         boolean result = this.getCache().remove(key);
         if (!result) {
-            throw new StampDeleteFailedException("Delete Stamp From Storage Failed");
+            log.warn("[Herodotus] |- Delete stamp [{}] failed.", key);
         }
     }
 

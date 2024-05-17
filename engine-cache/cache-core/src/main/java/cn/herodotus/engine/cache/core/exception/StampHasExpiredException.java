@@ -16,9 +16,7 @@
 
 package cn.herodotus.engine.cache.core.exception;
 
-import cn.herodotus.engine.assistant.definition.domain.Feedback;
-import cn.herodotus.engine.assistant.definition.exception.PlatformRuntimeException;
-import cn.herodotus.engine.cache.core.constants.CacheErrorCodes;
+import cn.herodotus.engine.assistant.definition.exception.PlatformException;
 
 /**
  * <p>Description: Stamp签章 已过期错误 </p>
@@ -26,7 +24,7 @@ import cn.herodotus.engine.cache.core.constants.CacheErrorCodes;
  * @author : gengwei.zheng
  * @date : 2021/8/23 12:36
  */
-public class StampHasExpiredException extends PlatformRuntimeException {
+public class StampHasExpiredException extends PlatformException {
 
     public StampHasExpiredException() {
         super();
@@ -46,10 +44,5 @@ public class StampHasExpiredException extends PlatformRuntimeException {
 
     protected StampHasExpiredException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
-    }
-
-    @Override
-    public Feedback getFeedback() {
-        return CacheErrorCodes.STAMP_HAS_EXPIRED;
     }
 }

@@ -51,22 +51,22 @@ public class HttpCryptoProcessor extends AbstractStampManager<String, SecretKey>
         this.symmetricCryptoProcessor = symmetricCryptoProcessor;
     }
 
-    public String encrypt(String identity, String content) throws SessionInvalidException {
+    public String encrypt(String identity, String content){
         try {
             SecretKey secretKey = getSecretKey(identity);
             String result = symmetricCryptoProcessor.encrypt(content, secretKey.getSymmetricKey());
             log.debug("[Herodotus] |- Encrypt content from [{}] to [{}].", content, result);
             return result;
         } catch (StampHasExpiredException e) {
-            log.warn("[Herodotus] |- Session has expired, need recreate.");
-            throw new SessionInvalidException();
+            log.warn("[Herodotus] |- Session has expired, need recreate, Skip encrypt content [{}].", content);
+            return content;
         } catch (Exception e) {
             log.warn("[Herodotus] |- Symmetric can not Encrypt content [{}], Skip!", content);
             return content;
         }
     }
 
-    public String decrypt(String identity, String content) throws SessionInvalidException {
+    public String decrypt(String identity, String content) {
         try {
             SecretKey secretKey = getSecretKey(identity);
 
@@ -74,8 +74,8 @@ public class HttpCryptoProcessor extends AbstractStampManager<String, SecretKey>
             log.debug("[Herodotus] |- Decrypt content from [{}] to [{}].", content, result);
             return result;
         } catch (StampHasExpiredException e) {
-            log.warn("[Herodotus] |- Session has expired, need recreate.");
-            throw new SessionInvalidException();
+            log.warn("[Herodotus] |- Session has expired, need recreate, Skip decrypt content [{}].", content);
+            return content;
         } catch (Exception e) {
             log.warn("[Herodotus] |- Symmetric can not Decrypt content [{}], Skip!", content);
             return content;
@@ -170,10 +170,15 @@ public class HttpCryptoProcessor extends AbstractStampManager<String, SecretKey>
      * @return 前端 PublicKey 加密后的 AES KEY
      * @throws SessionInvalidException sessionId不可用，无法从缓存中找到对应的值
      */
-    public String exchange(String identity, String confidential) throws SessionInvalidException {
-        SecretKey secretKey = getSecretKey(identity);
-        String frontendPublicKey = decryptFrontendPublicKey(confidential, secretKey.getPrivateKey());
-        return encryptBackendKey(secretKey.getSymmetricKey(), frontendPublicKey);
+    public String exchange(String identity, String confidential){
+        try {
+            SecretKey secretKey = getSecretKey(identity);
+            String frontendPublicKey = decryptFrontendPublicKey(confidential, secretKey.getPrivateKey());
+            return encryptBackendKey(secretKey.getSymmetricKey(), frontendPublicKey);
+        } catch (StampHasExpiredException e) {
+            throw new SessionInvalidException();
+        }
+
     }
 
     @Override

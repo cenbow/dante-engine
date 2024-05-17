@@ -16,9 +16,7 @@
 
 package cn.herodotus.engine.cache.core.exception;
 
-import cn.herodotus.engine.assistant.definition.domain.Feedback;
-import cn.herodotus.engine.assistant.definition.exception.PlatformRuntimeException;
-import cn.herodotus.engine.cache.core.constants.CacheErrorCodes;
+import cn.herodotus.engine.assistant.definition.exception.PlatformException;
 
 /**
  * <p>Description: 请求参数中缺少幂等Token错误 </p>
@@ -26,10 +24,9 @@ import cn.herodotus.engine.cache.core.constants.CacheErrorCodes;
  * @author : gengwei.zheng
  * @date : 2021/8/23 12:29
  */
-public class StampParameterIllegalException extends PlatformRuntimeException {
+public class StampParameterIllegalException extends PlatformException {
 
     public StampParameterIllegalException() {
-        super();
     }
 
     public StampParameterIllegalException(String message) {
@@ -44,12 +41,7 @@ public class StampParameterIllegalException extends PlatformRuntimeException {
         super(cause);
     }
 
-    protected StampParameterIllegalException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+    public StampParameterIllegalException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
-    }
-
-    @Override
-    public Feedback getFeedback() {
-        return CacheErrorCodes.STAMP_PARAMETER_ILLEGAL;
     }
 }
