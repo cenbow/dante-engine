@@ -124,6 +124,7 @@
         <jquery-backstretch.version>2.1.16</jquery-backstretch.version>
         <mdi__font.version>7.4.47</mdi__font.version>
         <quasar.version>2.16.4</quasar.version>
+        <sweetalert2.verison>11.11.0</sweetalert2.verison>
         <uniform.version>2.1.2-1</uniform.version>
         <vue.version>3.4.25</vue.version>
         <!--厂商应用集成-->
@@ -696,6 +697,11 @@
                 <groupId>org.webjars.npm</groupId>
                 <artifactId>quasar</artifactId>
                 <version>${quasar.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.webjars.npm</groupId>
+                <artifactId>sweetalert2</artifactId>
+                <version>${sweetalert2.verison}</version>
             </dependency>
             <dependency>
                 <groupId>org.webjars</groupId>
