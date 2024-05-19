@@ -16,13 +16,15 @@
 
 package cn.herodotus.engine.cache.core.exception;
 
+import cn.herodotus.engine.assistant.definition.exception.PlatformException;
+
 /**
  * <p>Description: 超出最大数量限制 </p>
  *
  * @author : gengwei.zheng
  * @date : 2022/7/6 23:03
  */
-public class MaximumLimitExceededException extends Exception {
+public class MaximumLimitExceededException extends PlatformException {
 
     public MaximumLimitExceededException() {
         super();

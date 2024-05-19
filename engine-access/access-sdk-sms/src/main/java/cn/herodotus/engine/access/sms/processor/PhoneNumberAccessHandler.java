@@ -23,6 +23,9 @@ import cn.herodotus.engine.access.core.exception.AccessIdentityVerificationFaile
 import cn.herodotus.engine.access.sms.stamp.VerificationCodeStampManager;
 import cn.herodotus.engine.assistant.definition.domain.oauth2.AccessPrincipal;
 import cn.herodotus.engine.assistant.definition.constants.BaseConstants;
+import cn.herodotus.engine.cache.core.exception.StampHasExpiredException;
+import cn.herodotus.engine.cache.core.exception.StampMismatchException;
+import cn.herodotus.engine.cache.core.exception.StampParameterIllegalException;
 import org.dromara.sms4j.api.SmsBlend;
 import org.dromara.sms4j.api.entity.SmsResponse;
 import org.dromara.sms4j.core.factory.SmsFactory;
@@ -64,8 +67,9 @@ public class PhoneNumberAccessHandler implements AccessHandler {
 
     @Override
     public AccessUserDetails loadUserDetails(String source, AccessPrincipal accessPrincipal) {
-        boolean isCodeOk = verificationCodeStampManager.check(accessPrincipal.getMobile(), accessPrincipal.getCode());
-        if (isCodeOk) {
+        try {
+            verificationCodeStampManager.check(accessPrincipal.getMobile(), accessPrincipal.getCode());
+
             AccessUserDetails accessUserDetails = new AccessUserDetails();
             accessUserDetails.setUuid(accessPrincipal.getMobile());
             accessUserDetails.setPhoneNumber(accessPrincipal.getMobile());
@@ -74,8 +78,9 @@ public class PhoneNumberAccessHandler implements AccessHandler {
 
             verificationCodeStampManager.delete(accessPrincipal.getMobile());
             return accessUserDetails;
-        }
 
-        throw new AccessIdentityVerificationFailedException("Phone Verification Code Error!");
+        } catch (StampParameterIllegalException | StampMismatchException | StampHasExpiredException e) {
+            throw new AccessIdentityVerificationFailedException("Phone Verification Code Error!");
+        }
     }
 }

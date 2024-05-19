@@ -16,13 +16,10 @@
 
 package cn.herodotus.engine.cache.autoconfigure;
 
-import cn.herodotus.engine.assistant.definition.function.ErrorCodeMapperBuilderCustomizer;
-import cn.herodotus.engine.cache.autoconfigure.customizer.CacheErrorCodeMapperBuilderCustomizer;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
-import org.springframework.context.annotation.Bean;
 
 /**
  * <p>Description: Cache 配置 </p>
@@ -38,12 +35,5 @@ public class CacheAutoConfiguration {
     @PostConstruct
     public void postConstruct() {
         log.info("[Herodotus] |- Module [Cache Starter] Auto Configure.");
-    }
-
-    @Bean
-    public ErrorCodeMapperBuilderCustomizer cacheErrorCodeMapperBuilderCustomizer() {
-        CacheErrorCodeMapperBuilderCustomizer customizer = new CacheErrorCodeMapperBuilderCustomizer();
-        log.debug("[Herodotus] |- Strategy [Cache ErrorCodeMapper Builder Customizer] Auto Configure.");
-        return customizer;
     }
 }

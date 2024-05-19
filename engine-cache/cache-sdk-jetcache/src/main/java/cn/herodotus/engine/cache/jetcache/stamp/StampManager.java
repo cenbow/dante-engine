@@ -16,7 +16,6 @@
 
 package cn.herodotus.engine.cache.jetcache.stamp;
 
-import cn.herodotus.engine.cache.core.exception.StampDeleteFailedException;
 import cn.herodotus.engine.cache.core.exception.StampHasExpiredException;
 import cn.herodotus.engine.cache.core.exception.StampMismatchException;
 import cn.herodotus.engine.cache.core.exception.StampParameterIllegalException;
@@ -145,9 +144,8 @@ public interface StampManager<K, V> extends InitializingBean {
      * 删除与Key对应的Stamp
      *
      * @param key 存储数据Key值
-     * @throws StampDeleteFailedException Stamp删除错误
      */
-    void delete(K key) throws StampDeleteFailedException;
+    void delete(K key);
 
     default boolean containKey(K key) {
         V value = get(key);

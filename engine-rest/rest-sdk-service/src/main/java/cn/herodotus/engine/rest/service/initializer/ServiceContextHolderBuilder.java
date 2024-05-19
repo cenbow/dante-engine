@@ -17,6 +17,7 @@
 package cn.herodotus.engine.rest.service.initializer;
 
 import cn.herodotus.engine.assistant.core.context.ServiceContextHolder;
+import cn.herodotus.engine.assistant.core.enums.Architecture;
 import cn.herodotus.engine.assistant.core.utils.WellFormedUtils;
 import cn.herodotus.engine.rest.condition.properties.EndpointProperties;
 import cn.herodotus.engine.rest.condition.properties.PlatformProperties;
@@ -61,10 +62,9 @@ public class ServiceContextHolderBuilder{
 
     public ServiceContextHolder build() {
         ServiceContextHolder holder = ServiceContextHolder.getInstance();
-        toServiceContextHolder(platformProperties, holder);
-        toServiceContextHolder(endpointProperties, holder, holder.isDistributedArchitecture());
         holder.setPort(String.valueOf(this.getPort()));
         holder.setIp(getHostAddress());
+        setProperties(holder);
         return holder;
     }
 
@@ -90,14 +90,12 @@ public class ServiceContextHolderBuilder{
         }
     }
 
-    private void toServiceContextHolder(PlatformProperties platformProperties, ServiceContextHolder serviceContextHolder) {
+    private void setProperties(ServiceContextHolder serviceContextHolder) {
         serviceContextHolder.setArchitecture(platformProperties.getArchitecture());
         serviceContextHolder.setDataAccessStrategy(platformProperties.getDataAccessStrategy());
         serviceContextHolder.setProtocol(platformProperties.getProtocol());
-    }
 
-    private void toServiceContextHolder(EndpointProperties endpointProperties, ServiceContextHolder serviceContextHolder, boolean isDistributedArchitecture) {
-        if (!isDistributedArchitecture) {
+        if (platformProperties.getArchitecture() == Architecture.MONOCOQUE) {
             String issuerUri = endpointProperties.getIssuerUri();
             serviceContextHolder.setGatewayServiceUri(issuerUri);
             serviceContextHolder.setUaaServiceUri(issuerUri);

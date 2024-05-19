@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="/webjars/font-awesome/css/v4-font-face.min.css" th:href="@{/webjars/font-awesome/css/v4-font-face.min.css}">
     <!-- UNIFORM -->
     <link rel="stylesheet" type="text/css" href="/webjars/uniform/themes/default/css/uniform.default.min.css" th:href="@{/webjars/uniform/themes/default/css/uniform.default.min.css}"/>
+    <link rel="stylesheet" type="text/css" href="/webjars/sweetalert2/dist/sweetalert2.min.css" th:href="@{/webjars/sweetalert2/dist/sweetalert2.min.css}"></script>
     <!-- ANIMATE -->
     <link rel="stylesheet" type="text/css" href="/webjars/animate.css/animate.min.css" th:href="@{/webjars/animate.css/animate.min.css}"/>
 
@@ -233,6 +234,7 @@
 <script type="text/javascript" src="/webjars/jquery-backstretch/jquery.backstretch.min.js" th:src="@{/webjars/jquery-backstretch/jquery.backstretch.min.js}"></script>
 <!-- UNIFORM -->
 <script type="text/javascript" src="/webjars/uniform/jquery.uniform.min.js" th:src="@{/webjars/uniform/jquery.uniform.min.js}"></script>
+<script type="text/javascript" src="/webjars/sweetalert2/dist/sweetalert2.all.min.js" th:src="@{/webjars/sweetalert2/dist/sweetalert2.all.min.js}"></script>
 <!-- CUSTOM SCRIPT -->
 <script type="text/javascript" th:src="@{/plugins/cloud-admin/js/script.js}"></script>
 <!-- CUSTOM SCRIPT -->
@@ -275,7 +277,7 @@
     function loadCaptcha() {
         let url = '[[${contextPath}]]/open/captcha'
         let sessionId = '[[${sessionId}]]';
-        $.http.get(url, {identity:sessionId, category: verification_category}, 'json')
+        $.http.get(url, {identity:sessionId, category: verification_category})
             .then(result => {
                 let src = result.data.graphicImageBase64;
                 $('#vrifyCodeImg').attr('src', src);
